@@ -1,1 +1,602 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr"xmlns:th="http://www.thymeleaf.org">
 
+<!--Header 설정 -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    Document Title
+    =============================================
+    -->
+    <title>CollectsPop</title>
+    <!--
+    Favicons
+    ============================================= -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../static/assets/images/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../static/assets/images/favicons/android-icon-192x192.png">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../static/assets/images/favicons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!--
+    Stylesheets
+    =============================================
+
+    -->
+    <!-- Default stylesheets-->
+    <link href="../static/assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link href="../static/assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="../static/assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../static/assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="../static/assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="../static/assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../static/assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="../static/assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="../static/assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    
+    <!-- Main stylesheet and color file-->
+    <link href="../static/assets/css/style.css" rel="stylesheet">
+    <link id="color-scheme" href="../static/assets/css/colors/default.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="../static/assets/css/style-main.css" rel="stylesheet" type="text/css">
+
+    <!--side bar-->
+    <script src="../static/assets/js/sidebar.js"></script>
+    <script src="../static/assets/css/sidebar.css"></script>
+
+</head>
+
+<style>
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+    label {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px; /* 띄워쓰기 간격 조정 */
+        font-size: large;
+    }
+    .main_exh_sub {
+        margin-top: 10px;
+        font-size: 14px;
+    }
+    .splide__slide {
+        width: 300px; /* Adjust the width as needed */
+        margin-right: 20px;
+    }
+    p, ol, ul, blockquote {
+        margin: 0 0 20px;
+        display: flex;
+    }
+    .splide {
+        display: flex;
+        justify-content: center;
+    }
+    /* 슬라이더 아이템 너비 설정 */
+    .splide__slide {
+        width: 320px;
+        margin-right: 20px;
+    }
+    .swiper-slide {
+        width: 80%; /* 원하는 가로 크기로 설정 */
+        height: 500px; /* 원하는 세로 크기로 설정 */
+        overflow: hidden;
+    }
+    .swiper-container {
+        width: 80%; /* 원하는 너비로 조정 */
+        height: 500px; /* 원하는 높이로 조정 */
+        overflow: hidden;
+        position: relative; /* 추가: 상대 위치 지정 */
+        margin: 0 auto; /* 가운데 정렬을 위해 사용 */
+    }
+
+    /* Swiper 슬라이드 이미지 크기 통일 및 꽉 차게 설정 */
+    .swiper-slide img {
+        width: 100%; /* 이미지를 부모 요소에 맞게 100%로 설정 */
+        height: 90%; /* 이미지를 부모 요소에 맞게 90%로 설정 */
+    }
+
+    /* Swiper 페이지네이션 컨테이너 스타일 */
+    .swiper-pagination-container {
+        text-align: center; /* 가운데 정렬을 위해 텍스트 정렬 설정 */
+        position: absolute; /* 추가: 절대 위치로 설정 */
+        bottom: 0; /* 하단에 위치하도록 설정 */
+        width: 100%; /* 가로 폭 100% 설정 */
+    }
+
+    /* Swiper 페이지네이션 스타일 */
+    .swiper-pagination {
+        display: inline-block; /* 페이지네이션을 인라인 블록 요소로 표시 */
+    }
+
+    /* Swiper 페이지네이션 점 스타일 */
+    .swiper-pagination-bullet {
+        width: 10px; /* 각 점의 너비 설정 */
+        height: 10px; /* 각 점의 높이 설정 */
+        background-color: #000000; /* 점의 배경색 설정 */
+        border-radius: 50%; /* 점을 동그랗게 만듭니다. */
+        cursor: pointer; /* 점 위에 마우스를 가져다 댈 때 커서 모양 변경 */
+        margin: 0 5px; /* 각 점 사이의 간격 설정 */
+    }
+
+    /* 활성화된 점 스타일 */
+    .swiper-pagination-bullet-active {
+        background-color: #000000; /* 활성화된 점의 배경색 설정 */
+    }
+    /* 스토어 정보를 가로로 나열하기 위한 스타일 */
+    .custom-swiper-wrapper {
+        display: flex;
+    }
+
+    .custom-swiper-slide {
+        flex: 0 0 auto; /* 가로로 나열되는 각 슬라이드의 크기를 자동 조정하지 않음 */
+        margin-right: 20px; /* 슬라이드 간 여백 설정 */
+    }
+
+</style>
+<!--모달-->
+<style>
+    .modal-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 5;  
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      max-width:100%;
+    }
+    .l-navbar{
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 50px;
+    }
+    
+    </style>
+
+
+
+<!--body-->
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+
+<div >
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" >
+        <div class="container">
+
+            <!--좌측 로고 -->
+            <div class="navbar-header" >
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    <span class="icon-bar"></span></button><a class="navbar-brand" href="#" >COLLECTPOPS</a>
+            </div>
+
+            <!-- 우측 헤더 목록-->
+            <div class="collapse navbar-collapse" id="custom-collapse" >
+                <ul class="nav navbar-nav navbar-right" style="display:inline-block;">
+                    <!-- <li class=""><a class="" href="../templates/store/storeList.html" >팝업스토어</a></li>
+                    <li class=""><a class="" href="../templates/map/map.html" >지도</a></li>
+                    <li class=""><a class="" href="../templates/feed/feed.html" >피드</a></li>
+                    <li class=""><a class="" href="../templates/users/login.html">로그인</a></li> -->
+                    <li class=""><a class="" href="#" >팝업스토어</a></li>
+                    <li class=""><a class="" href="#" >지도</a></li>
+                    <li class=""><a class="" href="#" >피드</a></li>
+                    <li class=""><a class="" href="#">로그인</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</div>
+
+
+
+<!-- Main Content들어갈 부분 -->
+<div class="swiper-container-parent" style="margin-top: 100px;">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <th:block th:each="banner : ${bannerList}">
+                <div class="swiper-slide">
+                    <img src="../static/bannerImg/sampleImg1.jpeg">
+                    <img src="../static/bannerImg/sampleImg2.jpeg">
+                </div>
+            </th:block>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<!-- 페이지네이션 -->
+
+<script th:inline="javascript">
+    let BannerList = /*[[${BannerList}]]*/[];
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,  // 1개의 슬라이드만 보이도록 설정
+            spaceBetween: 0,   // 슬라이드 사이 간격 설정 (0으로 설정하면 슬라이드 사이 간격이 없음)
+
+            // 페이지네이션 설정
+            pagination: {
+                el: '.swiper-pagination',  // 페이지네이션 요소
+                clickable: true,           // 페이지네이션 점을 클릭하여 슬라이드 이동 가능하도록 설정
+            },
+
+            // 자동으로 슬라이드 넘기기 설정
+            autoplay: {
+                delay: 2000,  // 넘어가는 간격 (2초마다)
+            },
+
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var swiper = new Swiper('.custom-swiper-container', {
+            slidesPerView: 1,  // 1개의 슬라이드만 보이도록 설정
+            spaceBetween: 15,   // 슬라이드 사이 간격 설정 (0으로 설정하면 슬라이드 사이 간격이 없음)
+            centeredSlides: true,
+
+            // 자동으로 슬라이드 넘기기 설정
+            autoplay: {
+                delay: 2000,  // 넘어가는 간격 (2초마다)
+            },
+        });
+    });
+
+</script>
+
+
+
+<br /><br />
+<div class="">
+    <label>                 내 주변 팝업 스토어 위치</label>
+    <button id="moveToCurrentLocation" class="btn btn-primary" style="margin-left: 10%">현재 위치로 이동</button>
+</div><br />
+<div class="my-3">
+    <div id="map" style="width: 80%; height: 500px; margin: 0 auto; background-image: url(../static/sampleImg/sampleMap.png);" ></div>
+
+</div><br /><br />
+<!-- 팝업 스토어 정보 -->
+
+
+
+<div style="width:98%; margin:auto;">
+    <!-- Header-->
+    <div>
+        <div class="d_menu" style="float:left; font-weight:bold; font-size:26px; margin-left: 40px">최근 올라온 팝업 스토어</div>
+        <div style="float:right;">
+            <span class="map_point2" style="margin-right: 30px">
+                <span><a th:href="@{/collectpop/store/storeList}">더보기</a></span>
+            </span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <br/><br/>
+    <!-- Slideshow-->
+    <div style="margin-top:30px; text-align: center; width: 98%; height: 600px; margin: 0 auto; overflow: hidden">
+        <section class="splide" id="recentSlide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!-- Thymeleaf를 사용하여 최근 팝업스토어 슬라이더 아이템 생성-->
+                    <div class="splide__slide" th:each="store : ${NewStore}" style="width: 330px;">
+                        <a th:href="@{'/collectpop/store/storeDetail/' + ${store.psId}}">
+                            <div style="width:330px; height:470px; margin-bottom:0px; float:left; margin-right:15px;">
+                                <div style="width:330px; height:470px; overflow:hidden; object-fit:contain; box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);">
+                                    <img th:src="@{/collectpop/store/thumbnail/{fileName}(fileName=${store.thumbnail})}"
+                                         alt="팝업스토어 이미지"
+                                         style="width:100%; height:470px; object-fit:cover;">
+                                </div>
+                                <div class="main_exh_sub">
+                                    <span th:text="${store.name}" style="font: bold 20px '';"></span><br>
+                                    <span th:text="${store.address}"></span><br>
+                                    <span th:text="${store.startDate} + ' ~ ' + ${store.endDate}"></span>
+                                    <div th:each="hashtag : ${recentPopupStoreHashtagList}" th:if="${hashtag.psId == recentStore.psId}">
+                                        <span th:if="${hashtag.hashtag != null and hashtag.hashtag != ''}">
+                                            <span th:if="${hashtag.hashtag != '[]'}"
+                                                  th:text="'#' + ${hashtag.hashtag.replace('[', '').replace(']', '').replace('&quot;', '')}">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div style="width:98%; margin:auto;">
+    <!-- Header-->
+    <div>
+        <div class="d_menu" style="float:left; font-weight:bold; font-size:26px; margin-left: 40px">좋아요 많은 팝업 스토어</div>
+        <div style="float:right;">
+            <span class="map_point2" style="margin-right: 30px">
+                <span><a th:href="@{/collectpop/store/storeList}">더보기</a></span>
+            </span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <br/><br/>
+    <!-- Slideshow-->
+    <div style="margin-top:30px; text-align: center; width: 98%; height: 600px; margin: 0 auto; overflow: hidden">
+        <section class="splide" id="slide2">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <!-- Thymeleaf를 사용하여 최근 팝업스토어 슬라이더 아이템 생성-->
+                    <div class="splide__slide" th:each="store : ${storeLike}" style="width: 330px;">
+                        <a th:href="@{'/collectpop/store/storeDetail/' + ${store.psId}}">
+                            <div style="width:330px; height:470px; margin-bottom:0px; float:left; margin-right:15px;">
+                                <div style="width:330px; height:470px; overflow:hidden; object-fit:contain; box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);">
+                                    <img th:src="@{/collectpop/store/thumbnail/{fileName}(fileName=${store.thumbnail})}"
+                                         alt="팝업스토어 이미지"
+                                         style="width:100%; height:470px; object-fit:cover;">
+                                </div>
+                                <div class="main_exh_sub">
+                                    <span th:text="${store.name}"  style="font: bold 20px '';"></span><br>
+                                    <span th:text="${store.address}"></span><br>
+                                    <span th:text="${store.startDate} + ' ~ ' + ${store.endDate}"></span>
+                                    <div th:each="hashtag : ${recentPopupStoreHashtagList}" th:if="${hashtag.psId == recentStore.psId}">
+                                        <span th:if="${hashtag.hashtag != null and hashtag.hashtag != ''}">
+                                            <span th:if="${hashtag.hashtag != '[]'}"
+                                                  th:text="'#' + ${hashtag.hashtag.replace('[', '').replace(']', '').replace('&quot;', '')}">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+<div style="width:98%; margin:auto;">
+    <!-- Header -->
+    <div>
+        <div class="d_menu" style="float:left; font-weight:bold; font-size:26px; margin-left: 40px">조회수 높은 팝업스토어</div>
+        <div style="float:right;">
+            <span class="map_point2" style="margin-right: 30px">
+                <span><a th:href="@{/collectpop/store/storeList}">더보기</a></span>
+            </span>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <br/><br/>
+    <!-- Slideshow -->
+    <div style="margin-top:30px; text-align: center; width: 98%; height: 600px; margin: 0 auto; overflow: hidden">
+        <section class="splide" id="viewslide">
+            <div class="splide__track">
+                <ul class="splide__list">-->
+                    <!-- Thymeleaf를 사용하여 최근 팝업스토어 슬라이더 아이템 생성-->
+                    <div class="splide__slide" th:each="store : ${storeViews}" style="width: 330px;">
+                        <a th:href="@{'/collectpop/store/storeDetail/' + ${store.psId}}">
+                            <div style="width:330px; height:470px; margin-bottom:0px; float:left; margin-right:15px;">
+                                <div style="width:330px; height:470px; overflow:hidden; object-fit:contain; box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);">
+                                    <img th:src="@{/collectpop/store/thumbnail/{fileName}(fileName=${store.thumbnail})}"
+                                         alt="팝업스토어 이미지"
+                                         style="width:100%; height:470px; object-fit:cover;">
+                                </div>
+                                <div class="main_exh_sub">
+                                    <span th:text="${store.name}"  style="font: bold 20px '';"></span><br>
+                                    <span th:text="${store.address}"></span><br>
+                                    <span th:text="${store.startDate} + ' ~ ' + ${store.endDate}"></span>
+                                    <div th:each="hashtag : ${recentPopupStoreHashtagList}" th:if="${hashtag.psId == recentStore.psId}">
+                                        <span th:if="${hashtag.hashtag != null and hashtag.hashtag != ''}">
+                                            <span th:if="${hashtag.hashtag != '[]'}"
+                                                  th:text="'#' + ${hashtag.hashtag.replace('[', '').replace(']', '').replace('&quot;', '')}">
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- 팝업스토어 모달 -->
+<div id="subScribe-modal" class="modal" th:style="'display: ' + (${showModal} ? 'block' : 'none') + '; width: 60%; height: 800px; margin-top: 60px;'">
+    <div class="modal-dialog">
+        <div class="modal-content" style="border-radius: 15px;">
+            <div class="modal-header" style="padding: 8px;">
+                <span class="modal-font" style="font-size: 18px; font-weight: bold; display: flex; justify-content: center;">최근 올라온 팝업스토어</span>
+                <span class="close" onclick="closeModal()" style="font-size: 30px; margin-top: -34px;">&times;</span>
+            </div>
+            <div class="modal-body" style="overflow: hidden;">
+                <div class="custom-swiper-container">
+                    <div class="swiper-wrapper">
+                        <th:block th:each="store, iterStat : ${NewStore}">
+                            <div class="swiper-slide" th:if="${iterStat.index < 3}">
+                                <a th:href="@{'/collectpop/store/storeDetail/' + ${store.psId}}">
+                                    <div class="store-info">
+                                        <div class="store-image">
+                                            <img th:src="@{/collectpop/store/thumbnail/{fileName}(fileName=${store.thumbnail})}"
+                                                 alt="팝업스토어 이미지" style="width: 500px; height: 400px;">
+                                        </div>
+                                        <div class="store-details">
+                                            <span th:text="${store.name}" style="font-weight: bold; font-size: 20px;"></span><br>
+                                            <span th:text="${store.address}"></span><br>
+                                            <span th:text="${store.startDate} + ' ~ ' + ${store.endDate}"></span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script th:inline="javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#slide2', {
+            type: 'loop', // 무한 루프 슬라이드로 변경
+            perPage: 4,
+            perMove: 1,
+            gap: '30px',
+            rewind: true,
+            pagination: false,
+            focus: 'center',
+            perPageOptions: [4],
+        });
+
+        splide.mount();
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var recentSplide = new Splide('#viewslide', {
+            type: 'loop', // 무한 루프 슬라이드로 변경
+            perPage: 4,    // 페이지당 4개의 아이템만 보이도록 설정
+            perMove: 1,
+            gap: '30px',
+            rewind: true,
+            pagination: false,
+            focus: 'center',
+            perPageOptions: [4]
+        });
+
+        recentSplide.mount();
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var recentSplide = new Splide('#recentSlide', {
+            type: 'loop', // 무한 루프 슬라이드로 변경
+            perPage: 4,    // 페이지당 4개의 아이템만 보이도록 설정
+            perMove: 1,
+            gap: '30px',
+            rewind: true,
+            pagination: false,
+            focus: 'center',
+            perPageOptions: [4]
+        });
+
+        recentSplide.mount();
+    });
+
+    // 모달 열기 함수
+    function openModal() {
+        document.getElementById('subScribe-modal').style.display = 'block';
+    }
+    function closeModal () {
+        document.getElementById('subScribe-modal').style.display = 'none';
+    }
+    let showModal = /*[[${showModal}]]*/ false;
+    console.log("showModal : " + showModal);
+    // 메인페이지 로드시 모달 생성
+    if(showModal) {
+        window.addEventListener('load', openModal);
+    }
+
+
+
+
+</script>
+<!-- End Main Content -->
+
+<!-- Footer 붙히기 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.4/dist/umd/popper.min.js"></script>
+
+
+
+<footer>
+
+    <!-- Start Footer-->
+
+    <div class="module-small bg-dark" style="padding: 0px 15px;  justify-content: space-between;">
+        <div class="container">
+            <!--로고 들어갈 공간 ,테스트용 이미지 첨가-->
+            <div class="row" style="float:left">
+                <label>
+                    <input type="image" src="../static/assets/images/favicons/apple-icon.png"
+                           style="width:150px;
+                            height:150px;
+                            overflow:hidden;
+                            margin:0 auto;
+                        "
+                           alt=""/>
+                </label>
+
+                <label style="padding: 30px " >
+                    <h2 class="widget-title font-alt">COLLECTPOP</h2>
+                    주식회사 더조은  |  주소 : 서울시 김구 홍길동 11번가<br>
+                    대표 : 홍길동하  |  사업자등록번호 : 123 -12- 12345 <br>
+                    <a href="#" class="">이용약관</a> <br>
+                    <a href="#" class="">개인정보처리방침</a>
+                </label>
+            </div>
+            <div class="row" style="text-align:right; float:right;">
+                <label style="padding: 30px " >
+                    <h5 class="widget-title font-alt">운영문의</h5>
+                    OFFICE : 12-123-1234 <br>
+                    운영시간 <br>
+                    평일 09:30-18:30 | 주말·공휴일 제외<br>
+                    점심시간 <br>
+                    평일 11:40-13:00
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--밑에 copyright 부분 -->
+    <hr class="divider-d">
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="copyright font-alt">&copy; 2023&nbsp;<a href="#">COLLECTPOPS</a>, All Rights Reserved</p>
+                </div>
+                <!-- 오른쪽 하단에 sns계정 연결버튼(페북 트위터 등)
+                <div class="col-sm-6">
+                    <div class="footer-social-links"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a><a href="#"><i class="fa fa-skype"></i></a>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </footer>
+    </div>
+    <div class="scroll-up"><a href="#totop"><Fi class="fa fa-angle-double-up"></Fi></a></div>
+
+</footer>
+
+</body>
+</html>
