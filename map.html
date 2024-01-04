@@ -70,7 +70,20 @@
     .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
     .info .link {color: #5085BB;}
 </style>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+    }
 
+    footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #222; /* 푸터 배경색 지정 */
+        color: #fff; /* 푸터 텍스트 색상 지정 */
+    }
+</style>
 <!-- Main Content들어갈 부분 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=[APPKEY]&libraries=services,clusterer"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
