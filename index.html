@@ -192,11 +192,7 @@
             <!-- 우측 헤더 목록-->
             <div class="collapse navbar-collapse" id="custom-collapse" >
                 <ul class="nav navbar-nav navbar-right" style="display:inline-block;">
-                    <!-- <li class=""><a class="" href="../templates/store/storeList.html" >팝업스토어</a></li>
-                    <li class=""><a class="" href="../templates/map/map.html" >지도</a></li>
-                    <li class=""><a class="" href="../templates/feed/feed.html" >피드</a></li>
-                    <li class=""><a class="" href="../templates/users/login.html">로그인</a></li> -->
-                    <li class=""><a class="" href="#" >팝업스토어</a></li>
+                    <li class=""><a class="" href="storeList.html" >팝업스토어</a></li>
                     <li class=""><a class="" href="#" >지도</a></li>
                     <li class=""><a class="" href="#" >피드</a></li>
                     <li class=""><a class="" href="#">로그인</a></li>
@@ -285,8 +281,7 @@
         <div class="d_menu" style="float:left; font-weight:bold; font-size:26px; margin-left: 40px">팝업스토어 전체보기</div>
         <div style="float:right;">
             <span class="map_point2" style="margin-right: 30px">
-                <!-- <span><a href="../templates/store/storeList.html">더보기</a></span> -->
-                <span><a href="#">더보기</a></span>
+                <span><a href="storeList.html">더보기</a></span>
             </span>
         </div>
         <div style="clear:both;"></div>
@@ -422,8 +417,7 @@
         <div class="d_menu" style="float:left; font-weight:bold; font-size:26px; margin-left: 40px">최근 올라온 팝업스토어</div>
         <div style="float:right;">
             <span class="map_point2" style="margin-right: 30px">
-                <!-- <span><a href="../templates/store/storeList.html">더보기</a></span> -->
-                <span><a href="#">더보기</a></span>
+                <span><a href="storeList.html">더보기</a></span>
             </span>
         </div>
         <div style="clear:both;"></div>
@@ -479,54 +473,6 @@
     </div>
     <br>
 </div>
-
-<!-- <div style="width:98%; margin:auto;">
-    <div>
-        <div class="d_menu" style="float:left; font-weight:bold; font-size:26px; margin-left: 40px">조회수 높은 팝업스토어</div>
-        <div style="float:right;">
-            <span class="map_point2" style="margin-right: 30px">
-                <span><a th:href="@{/collectpop/store/storeList}">더보기</a></span>
-            </span>
-        </div>
-        <div style="clear:both;"></div>
-    </div>
-    <br/><br/>
-
-    <div style="margin-top:30px; text-align: center; width: 98%; height: 600px; margin: 0 auto; overflow: hidden">
-        <section class="splide" id="viewslide">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    <div class="splide__slide" th:each="store : ${storeViews}" style="width: 330px;">
-                        <a th:href="@{'/collectpop/store/storeDetail/' + ${store.psId}}">
-                            <div style="width:330px; height:470px; margin-bottom:0px; float:left; margin-right:15px;">
-                                <div style="width:330px; height:470px; overflow:hidden; object-fit:contain; box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);">
-                                    <img th:src="@{/collectpop/store/thumbnail/{fileName}(fileName=${store.thumbnail})}"
-                                         alt="팝업스토어 이미지"
-                                         style="width:100%; height:470px; object-fit:cover;">
-                                </div>
-                                <div class="main_exh_sub">
-                                    <span th:text="${store.name}"  style="font: bold 20px '';"></span><br>
-                                    <span th:text="${store.address}"></span><br>
-                                    <span th:text="${store.startDate} + ' ~ ' + ${store.endDate}"></span>
-                                    <div th:each="hashtag : ${recentPopupStoreHashtagList}" th:if="${hashtag.psId == recentStore.psId}">
-                                        <span th:if="${hashtag.hashtag != null and hashtag.hashtag != ''}">
-                                            <span th:if="${hashtag.hashtag != '[]'}"
-                                                  th:text="'#' + ${hashtag.hashtag.replace('[', '').replace(']', '').replace('&quot;', '')}">
-                                            </span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </ul>
-            </div>
-        </section>
-    </div>
-</div> -->
-
-
-
 
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
 <script th:inline="javascript">
