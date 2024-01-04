@@ -55,31 +55,6 @@
 
 </head>
 
-<style>
-    #store-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 1000px; /* 가로 최대 너비 지정 */
-        margin: 0 auto; /* 중앙 정렬을 위한 여백 지정 */
-    }
-
-    .store-card {
-        width: calc(33.33% - 10px); /* 각 포스터의 너비를 계산하고 여백을 설정 */
-        margin-bottom: 20px; /* 포스터 간의 아래 여백 설정 */
-    }
-
-    .store-imgBox {
-        width: 100%;
-     
-    }
-
-    .store-imgBox img {
-        width: 100%;
-        height: 450px;
-    }
-</style>
-
 <!--body-->
 <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
 
@@ -106,121 +81,54 @@
         </nav>
     </div>
     
-    <section id="main-content-wrap">
-        <nav id="main-content-nav" class="d-flex justify-content-between align-items-center">
-            <br><br><br>
-            <!-- <div class="sort-container">
-                <select id="sort-selector1" class="form-select" aria-label="Default select example">
-                    <option value="all">전체 스토어</option>
-                    <optgroup label="전체">
-                        <option value="current">현재 오픈 스토어</option>
-                        <option value="upcoming">오픈 예정 스토어</option>
-                        <option value="past">지난 스토어 (종료된 스토어) </option>
-                    </optgroup>
-                </select>
-            </div> -->
-    
-            <!-- 검색 카테고리 선택 및 검색 입력 필드 -->
-            <div class="search-container">
-                <!-- <select id="search-category" class="form-select">
-                    <option value="all">전체</option>
-                    <option value="title">제목</option>
-                    <option value="address">주소</option>
-                    <option value="hashtag">해시태그</option>
-                </select> -->
-                <input type="text" id="search-input" class="form-control" placeholder="검색어를 입력하세요..." style="width: 90%; margin: auto;">
-                <br>
-            </div>
-
-            
-
-        </nav>
-    
-        <!-- <div id="store-wrap">
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg1.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-                <div class="store-detail">
-                    <span><a href="#" >${store.name}</a></span><br>
-                    <span class="store-adress">${store.address}</span><br>
-                    <span>조회수 : ${store.views}</span>
-                    <span>좋아요 : ${store.storeLike}</span><br>
-                    <span>${store.startDate} ~ ${store.endDate}</span><br>
-                </div>
-            </div>
-        </div> -->
-
-        <div id="store-wrap">
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg1.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg3.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg4.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg5.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg6.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-        
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg7.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg8.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg9.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-    </section>
-    
       
+    
+<div class="main">
+
+    <section class="module">
+        <div class="container" style="width: 40%;">
+            <div class="row">
+                <table class="col-sm-5 col-sm-offset-1 mb-sm-40" style="width:80%; ">
+                    <h4 class="font-alt" style="text-align:center;">로그인</h4>
+                    <hr class="divider-w mb-10">
+
+                    <form class="form" id="form" th:action th:object="${users}" method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="text" th:field="*{username}"  placeholder="ID"/>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" type="password" th:field="*{password}" placeholder="Password"/>
+                        </div>
+                        <label style="display: flex; align-items: center;">
+                            <input type="checkbox" class="checkbox" id="remember-me" name="remember-me">
+                            아이디기억하기
+                        </label>
+                        <div class="form-group">
+                            <button class="btn btn-round btn-b" type="submit" onclick="return fieldCheck()"
+                            style="width:100%;">Login</button>
+                        </div>
+                        <br>
+
+                        <label class="links-container">
+                            <a href="join.html">회원가입</a>
+                            <div class="right-links">
+                                <a href="#">아이디 찾기</a> 
+                                <a href="findPW.html">비밀번호 재설정</a>
+                            </div>
+                            <a href="index.html">홈으로</a>
+
+                        <!--카카오 로그인  onclick="kakaoLogin();"-->
+                        <a  href="https://kauth.kakao.com/oauth/authorize?client_id=[APPKEY]&redirect_uri=[URL]&response_type=code"   class="kakao" >
+                            <div class="kakao_i"></div>
+                            <div class="kakao_txt">카카오톡으로 간편로그인 / 회원가입 ( 포트폴리오 용입니다.) </div>
+                        </a>
+                    </form>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+
       
 
 

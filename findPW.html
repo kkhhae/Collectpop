@@ -55,31 +55,6 @@
 
 </head>
 
-<style>
-    #store-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 1000px; /* 가로 최대 너비 지정 */
-        margin: 0 auto; /* 중앙 정렬을 위한 여백 지정 */
-    }
-
-    .store-card {
-        width: calc(33.33% - 10px); /* 각 포스터의 너비를 계산하고 여백을 설정 */
-        margin-bottom: 20px; /* 포스터 간의 아래 여백 설정 */
-    }
-
-    .store-imgBox {
-        width: 100%;
-     
-    }
-
-    .store-imgBox img {
-        width: 100%;
-        height: 450px;
-    }
-</style>
-
 <!--body-->
 <body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
 
@@ -106,122 +81,9 @@
         </nav>
     </div>
     
-    <section id="main-content-wrap">
-        <nav id="main-content-nav" class="d-flex justify-content-between align-items-center">
-            <br><br><br>
-            <!-- <div class="sort-container">
-                <select id="sort-selector1" class="form-select" aria-label="Default select example">
-                    <option value="all">전체 스토어</option>
-                    <optgroup label="전체">
-                        <option value="current">현재 오픈 스토어</option>
-                        <option value="upcoming">오픈 예정 스토어</option>
-                        <option value="past">지난 스토어 (종료된 스토어) </option>
-                    </optgroup>
-                </select>
-            </div> -->
-    
-            <!-- 검색 카테고리 선택 및 검색 입력 필드 -->
-            <div class="search-container">
-                <!-- <select id="search-category" class="form-select">
-                    <option value="all">전체</option>
-                    <option value="title">제목</option>
-                    <option value="address">주소</option>
-                    <option value="hashtag">해시태그</option>
-                </select> -->
-                <input type="text" id="search-input" class="form-control" placeholder="검색어를 입력하세요..." style="width: 90%; margin: auto;">
-                <br>
-            </div>
-
-            
-
-        </nav>
-    
-        <!-- <div id="store-wrap">
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg1.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-                <div class="store-detail">
-                    <span><a href="#" >${store.name}</a></span><br>
-                    <span class="store-adress">${store.address}</span><br>
-                    <span>조회수 : ${store.views}</span>
-                    <span>좋아요 : ${store.storeLike}</span><br>
-                    <span>${store.startDate} ~ ${store.endDate}</span><br>
-                </div>
-            </div>
-        </div> -->
-
-        <div id="store-wrap">
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg1.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg3.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg4.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg5.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg6.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-        
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg7.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg8.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-            <div class="store-card" data-href="/collectpop/store/storeDetail/{psId}" data-psId="${store.psId}">
-                <div class="store-imgBox">
-                    <a href="#">
-                        <img src="src/main/resources/static/bannerImg/sampleImg9.jpeg" alt="팝업스토어 이미지">
-                    </a>
-                </div>
-            </div>
-
-    </section>
-    
       
-      
+
+
 
 
 
@@ -236,6 +98,68 @@
 <footer>
 
     <!-- Start Footer-->
+
+    
+
+
+    <section class="module">
+        <div class="container"  style="width: 50%;">
+            <div class="row">
+                <div class="col-sm-5 col-sm-offset-1 mb-sm-40" style="width:80%;">
+                    <h4 class="font-alt" style="text-align:center;">비밀번호 재설정</h4>
+                    <br>
+                    <hr class="divider-w mb-10">
+
+                    <form class="form" action="" th:action="@{/collectpop/users/findPassword}" th:object="${users}" method="post" id="form">
+                        <!-- <span>이메일 </span> -->
+                        <div class="form-group last mb-4 email_input">
+                            <label for="email" id="">이메일을 입력해주세요</label>
+                            <input class="form-control" type="text" th:field="*{email}" id="email">
+                        </div>
+                        <!-- <span>이메일 인증번호</span> -->
+                        <button class="btn btn-outline-primary" type="button" id="checkEmail"
+                            style="width:100%;">인증번호 받기</button>
+
+                        <div class="form-group last mb-4 check_input">
+                            <label for="memailconfirm" id="memailconfirmTxt">인증번호를 입력해주세요</label>
+                            <input type="text" class="form-control" id="memailconfirm" >
+                        </div>
+                        <br>
+                        <div class="form-group ">
+                            기존 아이디를 입력해주세요.
+                            <input type="text" class="form-control" th:field="*{username}" disabled >
+                        </div>
+
+                        <div class="form-group">
+                            신규 비밀번호 :
+                            <input type="password" class="form-control pw" id="password1" name="pw1" th:field="*{password}" disabled />
+                        </div>
+
+                        <div class="form-group">
+                            비밀번호 재확인:
+                            <input type="password" class="form-control pw" id="password2" name="pw2" disabled />
+                            <a id="checkPw"></a>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-block btn-round btn-b" type="subBtn"
+                                    style="width:100%;">재설정</button>
+                        </div>
+                    </form>
+
+                    <br>
+                    <label class="links-container">
+                        <a href="index.html">홈으로</a>
+                        <div class="right-links">
+                            <a href="join.html">회원가입</a>
+                            <a href="findID.html">아이디 찾기</a>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <div class="module-small bg-dark" style="padding: 0px 15px;  justify-content: space-between;">
         <div class="container">

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr"xmlns:th="http://www.thymeleaf.org">
+
+<!--Header 설정 -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+    Document Title
+    =============================================
+    -->
+    <title>CollectsPop</title>
+    <!--
+    Favicons
+    ============================================= -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!--
+    Stylesheets
+    =============================================
+
+    -->
+    <!-- Default stylesheets-->
+    <link href="src/main/resources/static/assets/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template specific stylesheets-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Volkhov:400i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+
+    <link href="src/main/resources/static/assets/lib/animate.css/animate.css" rel="stylesheet">
+    <link href="src/main/resources/static/assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="src/main/resources/static/assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
+    <link href="src/main/resources/static/assets/lib/flexslider/flexslider.css" rel="stylesheet">
+    <link href="src/main/resources/static/assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="src/main/resources/static/assets/lib/owl.carousel/dist/assets/owl.theme.default.min.css" rel="stylesheet">
+    <link href="src/main/resources/static/assets/lib/magnific-popup/dist/magnific-popup.css" rel="stylesheet">
+    <link href="src/main/resources/static/assets/lib/simple-text-rotator/simpletextrotator.css" rel="stylesheet">
+    
+    <!-- Main stylesheet and color file-->
+    <link href="src/main/resources/static/assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="src/main/resources/static/assets/css/style-main.css" rel="stylesheet" type="text/css">
+
+    <!--side bar-->
+    <script src="src/main/resources/static/assets/js/sidebar.js"></script>
+    <script src="src/main/resources/static/assets/css/sidebar.css"></script>
+
+</head>
+<style>
+    .wrap {position: absolute;left: 0;bottom: 40px;width: 288px;height: 132px;margin-left: -144px;text-align: left;overflow: hidden;font-size: 12px;font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;line-height: 1.5;}
+    .wrap * {padding: 0;margin: 0;}
+    .wrap .info {width: 286px;height: 120px;border-radius: 5px;border-bottom: 2px solid #ccc;border-right: 1px solid #ccc;overflow: hidden;background: #fff;}
+    .wrap .info:nth-child(1) {border: 0;box-shadow: 0px 1px 2px #888;}
+    .info .title {padding: 5px 0 0 10px;height: 30px;background: #eee;border-bottom: 1px solid #ddd;font-size: 18px;font-weight: bold;}
+    .info .close {position: absolute;top: 10px;right: 10px;color: #888;width: 17px;height: 17px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');}
+    .info .close:hover {cursor: pointer;}
+    .info .body {position: relative;overflow: hidden;}
+    .info .desc {position: relative;margin: 13px 0 0 90px;height: 75px;}
+    .desc .ellipsis {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .desc .jibun {font-size: 11px;color: #888;margin-top: -2px;}
+    .info .img {position: absolute;top: 6px;left: 5px;width: 73px;height: 71px;border: 1px solid #ddd;color: #888;overflow: hidden;}
+    .info:after {content: '';position: absolute;margin-left: -12px;left: 50%;bottom: 0;width: 22px;height: 12px;background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')}
+    .info .link {color: #5085BB;}
+</style>
+
+<!-- Main Content들어갈 부분 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=[APPKEY]&libraries=services,clusterer"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+<!--body-->
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+
+    <div>
+        <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" >
+            <div class="container">
+    
+                <!--좌측 로고 -->
+                <div class="navbar-header" >
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span>
+                        <span class="icon-bar"></span></button><a class="navbar-brand" href="index.html" >COLLECTPOPS</a>
+                </div>
+    
+                <!-- 우측 헤더 목록-->
+                <div class="collapse navbar-collapse" id="custom-collapse" >
+                    <ul class="nav navbar-nav navbar-right" style="display:inline-block;">
+                        <li class=""><a class="" href="storeList.html" >팝업스토어</a></li>
+                        <li class=""><a class="" href="map.html" >지도</a></li>
+                        <li class=""><a class="" href="feed.html" >피드</a></li>
+                        <li class=""><a class="" href="login.html">로그인</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+      
+ <div class="card shadow mb-4">
+
+    <div class="card-header  py-3" style=" margin-top: 5%; display: flex; margin-bottom: 1%; justify-content: space-evenly;" >
+        <label th:for="address"> </label>
+        <input class="form-control-sm float-right" type="text" th:id="address" placeholder="주소" style="width: 40%;">
+        <button type="button" class="btn btn-sm btn-dark float-right"
+                th:onclick="execDaumPostcode()">주소 검색</button>
+    </div>
+
+    <!-- 지도 표시 영역 -->
+    <!-- <div class="my-3">
+        <div id="map" style="width: 90%; height: 800px; margin: 0 auto; margin-bottom: 100px;"></div>
+
+        <script th:inline="javascript">
+            //주소 검색하여 이동
+            function execDaumPostcode() {
+                new daum.Postcode({
+                    oncomplete: function(data) {
+                        var addr = data.address; // 최종 주소 변수
+                        // 주소 정보를 해당 필드에 넣는다.
+                        document.getElementById("address").value = addr;
+                        // 주소로 상세 정보를 검색
+                        geocoder.addressSearch(data.address, function(results, status) {
+                            // 정상적으로 검색이 완료됐으면
+                            if (status === daum.maps.services.Status.OK) {
+                                var result = results[0]; //첫번째 결과의 값을 활용
+                                // 해당 주소에 대한 좌표를 받아서
+                                var coords = new daum.maps.LatLng(result.y, result.x);
+                                // 지도를 옮긴다.
+                                map.setCenter(coords);
+                            }
+                        });
+                    }
+                }).open();
+            }
+
+            // 실행 시 지도 위치 변경
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var lat = position.coords.latitude,
+                        lon = position.coords.longitude;
+
+                    var locPosition = new kakao.maps.LatLng(lat, lon);
+                    console.log(lat, lon);
+                    map.setCenter(locPosition);
+                });
+            }
+
+            var map = new kakao.maps.Map(document.getElementById('map'), {
+                center: new kakao.maps.LatLng(37.566826, 126.9786567),
+                level: 5
+            });
+
+            var geocoder = new kakao.maps.services.Geocoder();
+            var clusterer = new kakao.maps.MarkerClusterer({
+                map: map,
+                averageCenter: true,
+                minLevel: 5
+            });
+            let popupStoreList = /*[[${popupStoreList}]]*/ [];
+            // 오버레이와 마커 생성 및 이벤트 설정
+            for (let i = 0; i < popupStoreList.length; i++) {
+                let position = {
+                    lat: popupStoreList[i].latitude,
+                    lng: popupStoreList[i].longitude,
+                    title: popupStoreList[i].name,
+                    address: popupStoreList[i].address,
+                    img: popupStoreList[i].thumbnail,
+                    psId: popupStoreList[i].psId
+                };
+                var marker = new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(position.lat, position.lng)
+                });
+                // 클로저를 생성하여 오버레이를 클릭하면 보여지도록 하는 함수
+                function makeClickListener(overlay) {
+                    return function () {
+                        if (openedOverlay) {
+                            openedOverlay.setMap(null);
+                        }
+                        overlay.setMap(map);
+                        openedOverlay = overlay;
+                    };
+                }
+
+                var openedOverlay; // 열린 오버레이를 저장하는 변수
+
+                // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다
+                function closeOverlay(overlay) {
+                    overlay.setMap(null);
+                }
+
+                // 오버레이 생성 함수
+                function createOverlay(position, marker) {
+                    // imgUrl 생성
+                    var imgUrl = '/collectpop/store/thumbnail/' + position.img;  // 이미지 URL 가져오기
+                    console.log("imgURL : " + imgUrl);
+                    var content = '<div class="wrap">' +
+                        '    <div class="info">' +
+                        '        <div class="title">' +
+                        '            ' + position.title +
+                        '            <div class="close" onclick="closeOverlay(overlay)" title="닫기"></div>' +
+                        '        </div>' +
+                        '        <div class="body">' +
+                        '            <div class="img">' +
+                        '                <a href="/collectpop/store/storeDetail/' + position.psId  + '">' +
+                        '                <img src="' + imgUrl + '" width="73" height="70">\n' +
+                        '            </div>' +
+                        '            <div class="desc">' +
+                        '                <div class="ellipsis">' + position.address + '</div>' +
+                        '                <a href="https://map.kakao.com/link/to/' + position.address + ',' + position.lat + ',' + position.lng + '"' +
+                        '                style="color: blue;" target="_blank">길찾기</a></div>' +
+                        '            </div>' +
+                        '        </div>' +
+                        '    </div>' +
+                        '</div>';
+
+                    var overlay = new kakao.maps.CustomOverlay({
+                        content: content,
+                        map: null, // 초기에는 지도에 표시하지 않음
+                        position: new kakao.maps.LatLng(position.lat, position.lng)
+                    });
+
+                    // 마커를 클릭했을 때 오버레이를 표시하도록 설정
+                    kakao.maps.event.addListener(marker, 'click', function () {
+                        if (openedOverlay) {
+                            openedOverlay.setMap(null);
+                        }
+                        overlay.setMap(map);
+                        openedOverlay = overlay;
+                    });
+
+                    return overlay; // 생성한 오버레이 반환
+                }
+                // 오버레이 클릭 시 호출되는 함수
+                function closeOverlay() {
+                    if (openedOverlay) {
+                        openedOverlay.setMap(null);
+                        openedOverlay = null;
+                    }
+                }
+
+                // 오버레이를 저장하는 변수
+                var openedOverlay;
+                var marker = new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(position.lat, position.lng)
+                });
+                // 클로저를 사용하여 오버레이와 마커를 연결합니다
+                var overlay = createOverlay(position, marker);
+                clusterer.addMarker(marker); // 클러스터러에 마커 추가
+
+                // 클러스터러에 마커 추가
+                clusterer.addMarker(marker);
+            }
+            </script>
+        </div>
+    </div> -->
+
+<div id="map" style="width: 100%; height: 500px; margin: 0 auto; background-image: url(src/main/resources/static/sampleImg/sampleMap.png);" ></div> 
+
+
+
+<!-- End Main Content -->
+
+
+<footer>
+
+    <!-- Start Footer-->
+
+    <div class="module-small bg-dark" style="padding: 0px 15px;  justify-content: space-between;">
+        <div class="container">
+            <!--로고 들어갈 공간 ,테스트용 이미지 첨가-->
+            <div class="row" style="float:left">
+
+                <label style="padding: 30px " >
+                    <h2 class="widget-title font-alt">COLLECTPOP</h2>
+                    주식회사 더조은  |  주소 : 서울시 김구 홍길동 11번가<br>
+                    대표 : 홍길동하  |  사업자등록번호 : 123 -12- 12345 <br>
+                    <a href="#" class="">이용약관</a> <br>
+                    <a href="#" class="">개인정보처리방침</a>
+                </label>
+            </div>
+            <div class="row" style="text-align:right; float:right;">
+                <label style="padding: 30px " >
+                    <h5 class="widget-title font-alt">운영문의</h5>
+                    OFFICE : 12-123-1234 <br>
+                    운영시간 <br>
+                    평일 09:30-18:30 | 주말·공휴일 제외<br>
+                    점심시간 <br>
+                    평일 11:40-13:00
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--밑에 copyright 부분 -->
+    <hr class="divider-d">
+    <footer class="footer bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="copyright font-alt">&copy; 2023&nbsp; COLLECTPOPS , All Rights Reserved</p>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="footer-social-links"><p> | 본 사이트는 포트폴리오용으로 제작되었습니다. Project 2023</p></div>
+                </div>
+               
+            </div>
+        </div>
+    </footer>
+    </div>
+    <div class="scroll-up"><a href="#totop"><Fi class="fa fa-angle-double-up"></Fi></a></div>
+
+</footer>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#search-button").on("click", function () {
+            var searchCategory = $("#search-category").val();
+            var searchInput = $("#search-input").val();
+        
+        });
+
+        $("#sort-selector1").on("change", function () {
+            var selectedSortOption = $(this).val();
+            
+        });
+    });
+</script>
+
+</body>
+</html>
